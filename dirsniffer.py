@@ -13,17 +13,20 @@ print("""
 
 class sets:
     parser = argparse.ArgumentParser(description="Basic Dir Sniffer")
-    parser.add_argument("-u", "--url", required=True, help="Search URL (For Exemple: https://exemple.com)")
+    parser.add_argument("-u", "--url", required=True, help="Search URL (For Example: https://example.com)")
     parser.add_argument("-w", "--wordlist", required=True, help="Wordlist for search")
+    parser.add_argument("-t", "--searchpersecond", required=True, type=int, help="Search per Second")
 
     args = parser.parse_args()
 
+    speed = args.searchpersecond
     url = args.url
     wordlist_path = args.wordlist
 
-    print(f"Search Url: {url}")
+    print(f"Search URL: {url}")
     print(f"Wordlist Path: {wordlist_path}")
-    speed = float(input("Searches per Second: "))
+    print(f"Search per Second: {speed}")
+
 
 @staticmethod
 def reader():
